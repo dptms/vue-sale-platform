@@ -1,9 +1,11 @@
 import VueRouter from 'vue-router'
 
+import PagesIndex from './pages/Index'
+
 const routes = [
     {
         path: '/',
-        component: require('./pages/Index')
+        component: PagesIndex
     }
 ]
 
