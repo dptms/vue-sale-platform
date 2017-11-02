@@ -46,7 +46,7 @@
         <div class="col-md-9">
 
           <div class="row">
-            <AppSlide></AppSlide>
+            <AppSlide :banners="banners"></AppSlide>
           </div>
 
           <br>
@@ -114,6 +114,32 @@
 import AppSlide from "../components/AppSlide";
 export default {
   name: "pagesIndex",
+  data() {
+    return {
+      banners: [
+        {
+          src: require("../assets/slideShow/pic1.jpg"),
+          title: "图片一",
+          href: "https://www.baidu.com"
+        },
+        {
+          src: require("../assets/slideShow/pic2.jpg"),
+          title: "图片二",
+          href: "http://music.163.com/"
+        },
+        {
+          src: require("../assets/slideShow/pic3.jpg"),
+          title: "图片三",
+          href: "https://laravel-china.org/"
+        },
+        {
+          src: require("../assets/slideShow/pic4.jpg"),
+          title: "图片四",
+          href: "http://www.bootcdn.cn/"
+        }
+      ]
+    };
+  },
   components: {
     AppSlide
   }
