@@ -46,7 +46,7 @@
         <div class="col-md-9">
 
           <div class="row">
-            <AppSlide :banners="banners"></AppSlide>
+            <AppSlide :banners="banners" :inv.Number="4000"></AppSlide>
           </div>
 
           <br>

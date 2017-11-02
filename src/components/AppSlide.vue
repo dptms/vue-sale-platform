@@ -10,9 +10,15 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
           <template v-for="(banner,index) in banners">
-            <div class="item" :class="{active:nowIndex==index}">
-              <img :src="banner.src" :alt="banner.title">
-            </div>
+            
+              <div class="item" :class="{active:nowIndex==index}">
+                <a :href="banner.href" target="_blank">
+                  <transition name="fade">
+                    <img :src="banner.src" :alt="banner.title" v-if="show">
+                  </transition>
+                </a>
+              </div>
+            
           </template>
           {{banners[nowIndex].title}}
         </div>
@@ -29,6 +35,7 @@
       </div>
     </div>
   </div>
+  
 </template>
 
 <script>
@@ -50,7 +57,8 @@ export default {
   data() {
     return {
       nowIndex: 0,
-      invId: {}
+      invId: {},
+      show: true
     };
   },
   computed: {
@@ -63,7 +71,11 @@ export default {
   },
   methods: {
     goTo(page) {
-      this.nowIndex = page;
+      this.show = false;
+      setTimeout(() => {
+        this.nowIndex = page;
+        this.show = true;
+      }, 50);
     },
     runInv() {
       this.invId = setInterval(() => {
@@ -76,3 +88,14 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0.5;
+}
+</style>
