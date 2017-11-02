@@ -1,10 +1,10 @@
 <template>
-  <div class="AppSlide">
+  <div class="AppSlide" @mousemove="clearInv" @mouseout="runInv">
     <div class="col-md-12">
       <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">
-          <li data-slide-to="0" :class="{active:nowIndex==index}"  v-for="(banner,index) in banners"></li>
+          <li data-slide-to="0" :class="{active:nowIndex==index}"  v-for="(banner,index) in banners" @click="goTo(index)"></li>
         </ol>
 
         <!-- Wrapper for slides -->
@@ -34,18 +34,23 @@
 <script>
 export default {
   mounted() {
-    console.log(this.banners);
+    this.runInv();
   },
   name: "AppSlide",
   props: {
     banners: {
       type: Array,
       default: []
+    },
+    inv: {
+      type: Number,
+      default: 2000
     }
   },
   data() {
     return {
-      nowIndex: 0
+      nowIndex: 0,
+      invId: {}
     };
   },
   computed: {
@@ -53,14 +58,20 @@ export default {
       return this.banners.length > this.nowIndex + 1 ? this.nowIndex + 1 : 0;
     },
     prevPage() {
-      return this.nowIndex < 0 ? this.banners.length : this.nowIndex - 1;
+      return this.nowIndex > 0 ? this.nowIndex - 1 : this.banners.length - 1;
     }
   },
   methods: {
     goTo(page) {
       this.nowIndex = page;
-      console.log(this.nowIndex);
-      console.log(this.nextPage);
+    },
+    runInv() {
+      this.invId = setInterval(() => {
+        this.goTo(this.nextPage);
+      }, this.inv);
+    },
+    clearInv() {
+      clearInterval(this.invId);
     }
   }
 };
