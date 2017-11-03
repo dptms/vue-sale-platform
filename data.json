@@ -1,54 +1,98 @@
 {
-    "userInfo": [
+    "products": [
         {
-            "name": "BeJson",
-            "url": "http://www.bejson.com",
-            "page": 88,
-            "isNonProfit": true,
-            "address": {
-                "street": "科技园路.",
-                "city": "江苏苏州",
-                "country": "中国"
-            },
-            "links": [
+            "title": "PC产品",
+            "items": [
                 {
-                    "name": "Google",
-                    "url": "http://www.google.com"
+                    "title": "数据统计",
+                    "meta": "0",
+                    "href": "https://my.worktile.com/dashboard"
                 },
                 {
-                    "name": "Baidu",
-                    "url": "http://www.baidu.com"
+                    "title": "数据预测",
+                    "meta": "0",
+                    "href": "https://laravel-china.org/"
                 },
                 {
-                    "name": "SoSo",
-                    "url": "http://www.SoSo.com"
+                    "title": "流量分析",
+                    "meta": "1",
+                    "href": "https://www.kancloud.cn/martist/ma_zhao_liu/370443"
+                },
+                {
+                    "title": "广告发布",
+                    "meta": "0",
+                    "href": "https://cn.vuejs.org/"
                 }
             ]
         },
         {
-            "name": "BeJson",
-            "url": "http://www.bejson.com",
-            "page": 88,
-            "isNonProfit": true,
-            "address": {
-                "street": "科技园路.",
-                "city": "江苏苏州",
-                "country": "中国"
-            },
-            "links": [
+            "title": "手机应用类",
+            "items": [
                 {
-                    "name": "Google",
-                    "url": "http://www.google.com"
+                    "title": "91助手",
+                    "meta": "0",
+                    "href": "https://my.worktile.com/dashboard"
                 },
                 {
-                    "name": "Baidu",
-                    "url": "http://www.baidu.com"
+                    "title": "产品助手",
+                    "meta": "1",
+                    "href": "https://laravel-china.org/"
                 },
                 {
-                    "name": "SoSo",
-                    "url": "http://www.SoSo.com"
+                    "title": "只能地图",
+                    "meta": "0",
+                    "href": "https://www.kancloud.cn/martist/ma_zhao_liu/370443"
+                },
+                {
+                    "title": "广告发布",
+                    "meta": "0",
+                    "href": "https://cn.vuejs.org/"
                 }
             ]
+        }
+    ],
+    "news": [
+        {
+            "title": "习近平视察军委联合作战指挥中心",
+            "href": "https://www.toutiao.com/a6484061131592696334/"
+        },
+        {
+            "title": "银行多给一千六，浙江储户拒退钱称遵守“离柜概不负责”，你怎么看？",
+            "href": "https://www.toutiao.com/a6483710595290890509/"
+        },
+        {
+            "title": "特朗普做了个稳妥的决定：提名中间派鲍威尔任下届美联储主席",
+            "href": "https://www.toutiao.com/a6483944814097203726/"
+        }
+    ],
+    "boardList": [
+        {
+            "title": "开放产品",
+            "description": "开放产品是一款开放产品",
+            "href": "/static/images/1.png",
+            "toKey": "analysis",
+            "saleout": false
+        },
+        {
+            "title": "品牌营销",
+            "description": "品牌营销帮助你的产品更好地找到定位",
+            "href": "/static/images/2.png",
+            "toKey": "count",
+            "saleout": false
+        },
+        {
+            "title": "使命必达",
+            "description": "使命必达快速迭代永远保持最前端的速度",
+            "href": "/static/images/3.png",
+            "toKey": "forecast",
+            "saleout": true
+        },
+        {
+            "title": "勇攀高峰",
+            "description": "帮你勇闯高峰，到达事业的顶峰",
+            "href": "/static/images/4.png",
+            "toKey": "publish",
+            "saleout": false
         }
     ]
 }

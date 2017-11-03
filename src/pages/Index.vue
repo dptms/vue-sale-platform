@@ -9,22 +9,16 @@
                   全部产品
                 </div>
                 <ul class="list-group">
-                  <li class="list-group-item">
-                    <h4>Pc产品</h4>
+
+                  <li class="list-group-item" v-for="product in products">
+                    <h4>{{product.title}}</h4>
                     <ul class="list-group">
-                      <li class="list-group-item">数据统计</li>
-                      <li class="list-group-item">数据统计</li>
-                      <li class="list-group-item">数据统计</li>
+                      <li class="list-group-item" v-for="item in product.items">
+                        <a :href="item.href">{{item.title}}</a>
+                      </li>
                     </ul>
                   </li>
-                  <li class="list-group-item">
-                    <h4>Pc产品</h4>
-                    <ul class="list-group">
-                      <li class="list-group-item">数据统计</li>
-                      <li class="list-group-item">数据统计</li>
-                      <li class="list-group-item">数据统计</li>
-                    </ul>
-                  </li>
+                  
                 </ul>
               </div>
             </div>
@@ -35,9 +29,9 @@
                   最新消息
                 </div>
                 <ul class="list-group">
-                  <li class="list-group-item">新闻条目1新闻条目1新闻条目1新闻条目1新闻条目1</li>
-                  <li class="list-group-item">新闻条目1新闻条目1新闻条目1新闻条目1</li>
-                  <li class="list-group-item">新闻条目1新闻条目1新闻条目1新闻条目1</li>
+                  <li class="list-group-item" v-for="item in news">
+                    <a :href="item.href">{{item.title}}</a>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -52,56 +46,24 @@
           <br>
 
           <div class="row">
-            <div class="col-md-6">
-              <div class="well">
-                <div class="media">
-                  <div class="media-left">
-                    <a href="#">
-                      <img src="../assets/logo.png" alt="" class="media-object" width="123">
-                    </a>
-                  </div>
-                  <div class="media-body">
-                    <h4>开放产品</h4>
-                    <p>开放产品是一个款新产品开放产品放产品是一个款新产品</p>
-                    <button class="btn btn-success">立即购买</button>
-                  </div>
-                </div>
-              </div>
-            </div>
 
-            <div class="col-md-6">
+            <div class="col-md-6" v-for="item in boardList">
               <div class="well">
                 <div class="media">
                   <div class="media-left">
                     <a href="#">
-                      <img src="../assets/logo.png" alt="" class="media-object" width="123">
+                      <img :src="item.href" alt="" class="media-object" width="123">
                     </a>
                   </div>
                   <div class="media-body">
-                    <h4>开放产品</h4>
-                    <p>开放产品是一个款新产品开放产品放产品是一个款新产品</p>
+                    <h4>{{item.title}}</h4>
+                    <p>{{item.description}}</p>
                     <button class="btn btn-success">立即购买</button>
                   </div>
                 </div>
               </div>
             </div>
-
-            <div class="col-md-6">
-              <div class="well">
-                <div class="media">
-                  <div class="media-left">
-                    <a href="#">
-                      <img src="../assets/logo.png" alt="" class="media-object" width="123">
-                    </a>
-                  </div>
-                  <div class="media-body">
-                    <h4>开放产品</h4>
-                    <p>开放产品是一个款新产品开放产品放产品是一个款新产品</p>
-                    <button class="btn btn-success">立即购买</button>
-                  </div>
-                </div>
-              </div>
-            </div>
+            
           </div>
 
         </div>
@@ -113,9 +75,19 @@
 <script>
 import AppSlide from "../components/AppSlide";
 export default {
+  mounted() {
+    this.axios.get("/api").then(response => {
+      this.products = response.data.products;
+      this.news = response.data.news;
+      this.boardList = response.data.boardList;
+    });
+  },
   name: "pagesIndex",
   data() {
     return {
+      products: [],
+      news: [],
+      boardList: [],
       banners: [
         {
           src: require("../assets/slideShow/pic1.jpg"),
